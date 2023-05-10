@@ -1,4 +1,4 @@
-,dteday,season,yr,mnth,holiday,weekday,workingday,weathersit,temp,hum,windspeed,casual,registered
+,date,season,year,month,holiday,weekday,workingday,weather,temp,hum,windspeed,casual,registered
 0,2018-01-01,winter,0,1,0,6,0,2,14.110847,80.5833,10.749882,331,654
 1,2018-01-02,winter,0,1,0,0,0,2,14.902598,69.6087,16.652113,131,670
 2,2018-01-03,winter,0,1,0,1,1,1,8.050924,43.7273,16.636703,120,1229
