@@ -104,7 +104,7 @@
 102,2018-04-13,spring,0,4,not holiday,Friday,workingday,cloudy,16.9125,81.9167,16.791339,209,1953
 103,2018-04-14,spring,0,4,not holiday,Saturday,weekend or holiday,clear,19.1675,54.0417,7.4169,529,2738
 104,2018-04-15,spring,0,4,not holiday,Sunday,weekend or holiday,clear,18.313347,67.125,15.167125,642,2484
-105,2018-04-16,spring,0,4,not holiday,Monday,workingday,stormy,17.664153,88.8333,22.834136,121,674
+105,2018-04-16,spring,0,4,holiday,Monday,weekend or holiday,stormy,17.664153,88.8333,22.834136,121,674
 106,2018-04-17,spring,0,4,not holiday,Tuesday,workingday,clear,18.723347,47.9583,20.334232,1558,2186
 107,2018-04-18,spring,0,4,not holiday,Wednesday,workingday,clear,21.0125,54.25,10.958989,669,2760
 108,2018-04-19,spring,0,4,not holiday,Thursday,workingday,cloudy,20.739153,66.5833,10.584057,409,2795
@@ -469,7 +469,7 @@
 467,2019-04-13,spring,1,4,not holiday,Saturday,weekend or holiday,clear,18.1425,40.8333,10.416557,1252,5146
 468,2019-04-14,spring,1,4,not holiday,Sunday,weekend or holiday,clear,20.295,50.2917,12.791439,2795,4665
 469,2019-04-15,spring,1,4,not holiday,Monday,workingday,clear,24.873347,50.7917,15.083643,2846,4286
-470,2019-04-16,spring,1,4,not holiday,Tuesday,workingday,clear,27.230847,56.1667,19.083543,1198,5172
+470,2019-04-16,spring,1,4,holiday,Tuesday,weekend or holiday,clear,27.230847,56.1667,19.083543,1198,5172
 471,2019-04-17,spring,1,4,not holiday,Wednesday,workingday,clear,24.941653,39.0417,18.333143,989,5702
 472,2019-04-18,spring,1,4,not holiday,Thursday,workingday,cloudy,18.996653,56.9167,11.250104,347,4020
 473,2019-04-19,spring,1,4,not holiday,Friday,workingday,clear,20.431653,61.25,4.4172564,846,5719
