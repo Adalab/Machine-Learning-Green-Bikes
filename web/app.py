@@ -7,6 +7,11 @@
 import requests
 import streamlit as st
 from streamlit_lottie import st_lottie
+import pandas as pd
+import numpy as np
+# import sys
+# sys.path.append('../')
+# from web import prediccion as pdc
 
 # crear la web
 st.set_page_config(page_title="Rental Bikes Number Predictor", page_icon="\U0001F6B2", layout="wide")
@@ -44,22 +49,29 @@ with st.container():
         st.header("Let's start.")
         st.write("##")
         st.subheader("We need your help for the predictor to do its job.")
-        st.write("Please, introduce the following information regarding the circunstances of the prediction date:")
-        tipo_modelo = st.text_input("Select the kind of user your are interested in: casual/registered/both")
-        fecha = st.text_input("Date for the prediction (YYYY-MM-DD):")
-        estacion = st.text_input("Select a season among the following options: winter/spring/autumn/summer")
-        año = st.text_input("Select a year among the following options: 2018/2019")
-        mes = st.text_input("Select a month among the following options: 1/2/3/4/5/6/7/8/9/10/11/12")
-        festivo = st.text_input("Select among the following options: holiday/not holiday")
-        dia_semana = st.text_input("Select a weekday among the following options: Sunday/Monday/Tuesday/Wednesday/Thursday/Friday/Saturday")
-        laborable = st.text_input("Select among the following options: workingday/weekend or holiday")
-        clima = st.text_input("Select a season among the following options: clear/cloudy/stormy")
-        temperatura = st.text_input("Write the temperature prediction (ºC):")
-        humedad = st.text_input("Write the humidity prediction (%):")
-        viento = st.text_input("Write the windspeed prediction:")
+        st.write("Please, insert the information regarding the circunstances of the prediction date.")
 
     with right_column:
         st_lottie(animacion, height=300, key="coding")
+        # st.empty()
+
+# cuerpo, pedir variables
+with st.container():
+    st.write("---")
+    left_column, right_column = st.columns(2)
+    with left_column:
+        tipo_modelo = st.text_input("¿What kind of user are you interested in? Please, choose from the following: casual / registered / both")
+        fecha = st.text_input("Date for the prediction (YYYY-MM-DD). Please, be advised it needs to be a future date:")
+        # estacion = st.text_input("Select a season among the following options: winter / spring / autumn / summer")
+        # año = st.text_input("Write the year:")
+        # mes = st.text_input("Write the number corresponding to the month: 1 / 2 / 3 / 4 / 5 / 6 / 7 / 8 / 9 / 10 / 11 / 12")
+        # festivo = st.text_input("Select among the following options: holiday / not holiday")
+        temperatura = st.text_input("Write the temperature prediction (ºC):")
+    with right_column:
+        # dia_semana = st.text_input("Select a weekday among the following options: Sunday / Monday / Tuesday / Wednesday / Thursday / Friday / Saturday")
+        # laborable = st.text_input("Select among the following options: workingday / weekend or holiday")
+        humedad = st.text_input("Write the humidity prediction (%):")
+        viento = st.text_input("Write the windspeed prediction:")
 
 # formulario de contacto
 with st.container():
@@ -81,3 +93,17 @@ with st.container():
         st.markdown(contact_form, unsafe_allow_html=True)
     with right_column:
         st.empty()
+
+
+
+# en función del input damos la respuesta
+# if tipo_modelo == '':
+#     pass
+# else:
+#     if tipo_modelo == 'casual':
+#         print(f'The estimated number of rental bikes for {fecha} for casual users would be between: {round(pdc.conteo_casual[0]-pdc.rmse_casual)} - {round(pdc.conteo_casual[0]+pdc.rmse_casual)}. The model estimates: {round(pdc.conteo_casual[0])}.')
+#     elif tipo_modelo == 'registered':
+#         print(f'The estimated number of rental bikes for {fecha} for registered users would be between: {round(pdc.conteo_registered[0]-pdc.rmse_registered)} - {round(pdc.conteo_registered[0]+pdc.rmse_registered)}. The model estimates: {round(pdc.conteo_registered[0])}.')
+#     else:
+#         print(f'The estimated number of rental bikes for {fecha} for casual users would be between: {round(pdc.conteo_casual[0]-pdc.rmse_casual)} - {round(pdc.conteo_casual[0]+pdc.rmse_casual)}. The model estimates: {round(pdc.conteo_casual[0])}.')
+#         print(f'The estimated number of rental bikes for {fecha} for registered users would be between: {round(pdc.conteo_registered[0]-pdc.rmse_registered)} - {round(pdc.conteo_registered[0]+pdc.rmse_registered)}. The model estimates: {round(pdc.conteo_registered[0])}.')
