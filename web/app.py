@@ -76,16 +76,11 @@ with st.form(key='form_predictoras'):
     with left_column:
         #tipo_modelo = st.text_input("¿What kind of user are you interested in? Please, choose from the following: casual / registered / both")
         tipo_modelo = st.selectbox("¿What kind of user are you interested in?", ["casual", "registered", "both"])
-        fecha = st.text_input("Date for the prediction (YYYY-MM-DD). Please, be advised it needs to be a future date:")
-        # estacion = st.text_input("Select a season among the following options: winter / spring / autumn / summer")
-        # año = st.text_input("Write the year:")
-        # mes = st.text_input("Write the number corresponding to the month: 1 / 2 / 3 / 4 / 5 / 6 / 7 / 8 / 9 / 10 / 11 / 12")
-        # festivo = st.text_input("Select among the following options: holiday / not holiday")
+        fecha = st.date_input("Select the date for the prediction. Please, be advised it needs to be a future date:")
+        # fecha = st.text_input("Date for the prediction (YYYY-MM-DD). Please, be advised it needs to be a future date:")
         temperatura = st.text_input("Write the temperature prediction (ºC):")
         # temperatura = st.number_input("Write the temperature prediction (ºC):", format="%.3f", lang='en_EN')
     with right_column:
-        # dia_semana = st.text_input("Select a weekday among the following options: Sunday / Monday / Tuesday / Wednesday / Thursday / Friday / Saturday")
-        # laborable = st.text_input("Select among the following options: workingday / weekend or holiday")
         humedad = st.text_input("Write the humidity prediction (%):")
         viento = st.text_input("Write the windspeed prediction:")
         # humedad = st.number_input("Write the humidity prediction (%):", format="%.3f", lang='en_EN')
@@ -95,9 +90,18 @@ with st.form(key='form_predictoras'):
 if submit_button:
     st.success(f"Thank you for inserting the data. Our model is working to give you ASAP a prediction for {fecha}.")
     casual_pred, casual_min, casual_max, regist_pred, regist_min, regist_max = pdc.predictor_bicis(fecha, temperatura, humedad, viento)
-    with st.expander("Results"):
-        df = pd.DataFrame({'User type':['casual', 'registered'], 'Estimated value':[casual_pred, regist_pred], 'Probable min':[casual_min, regist_min], 'Probable max':[casual_max, regist_max]}, index = [0, 1])
-        st.dataframe(df)
+    if tipo_modelo == 'casual':
+        with st.expander("Results"):
+            df = pd.DataFrame({'User type': 'casual', 'Estimated value': casual_pred, 'Probable min': casual_min, 'Probable max': casual_max}, index = [0])
+            st.dataframe(df)
+    elif tipo_modelo == 'registered':
+        with st.expander("Results"):
+            df = pd.DataFrame({'User type': 'registered', 'Estimated value': regist_pred, 'Probable min': regist_min, 'Probable max': regist_max}, index = [0])
+            st.dataframe(df)
+    else:
+        with st.expander("Results"):
+            df = pd.DataFrame({'User type':['casual', 'registered'], 'Estimated value':[casual_pred, regist_pred], 'Probable min':[casual_min, regist_min], 'Probable max':[casual_max, regist_max]}, index = [0, 1])
+            st.dataframe(df)
 
 
 # formulario de contacto

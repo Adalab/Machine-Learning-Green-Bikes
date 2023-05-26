@@ -34,7 +34,8 @@ def predictor_bicis(date, temperature, humidity, windspeed):
     else:
         df['workingday'] = 'weekend or holiday'
     # función para obtener season
-    año_func = int(date[:4])
+    # año_func = int(date[:4])
+    año_func = df['date'].dt.year[0]
     primavera = pd.date_range(start= f'{año_func}-03-21', end=f'{año_func}-06-21')
     verano = pd.date_range(start= f'{año_func}-06-22', end=f'{año_func}-09-22')
     otoño = pd.date_range(start= f'{año_func}-09-23', end=f'{año_func}-12-21')
