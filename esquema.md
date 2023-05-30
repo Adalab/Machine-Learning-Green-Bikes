@@ -12,7 +12,6 @@
 
 6. Next steps (más ciudades)
 
-
 1. Posible No Secrets Data
 
 2. Presentación participantes
@@ -30,8 +29,6 @@
 - Número de registrados y de casuales
 
 - Meter gráficas resumen del resultado del procesamiento tras contextualizarlo
-
-- 
 
 
 4.2 Herramientas: VS Code, librerías, Tableau si lo utilizamos
